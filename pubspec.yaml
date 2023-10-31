@@ -41,6 +41,7 @@ dependencies:
   auto_route: ^7.8.4
   awesome_dio_interceptor: ^1.0.0
   oktoast: ^3.3.2
+  sqflite: ^2.3.0
 
 
 

@@ -4,7 +4,9 @@ import 'package:oktoast/oktoast.dart';
 import 'package:tech_crunch/src/configs/router/app_router.dart';
 import 'package:tech_crunch/src/configs/themes/app_themes.dart';
 import 'package:tech_crunch/src/domain/repositories/api_repository.dart';
+import 'package:tech_crunch/src/domain/repositories/database_repository.dart';
 import 'package:tech_crunch/src/locator.dart';
+import 'package:tech_crunch/src/presentation/cubits/local_articles/local_articles_cubit.dart';
 import 'package:tech_crunch/src/presentation/cubits/remote_articles/remote_articles_cubit.dart';
 
 Future<void> main() async {
@@ -25,6 +27,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => LocalArticlesCubit(
+            locator<DatabaseRepository>(),
+          )..getAllSavedArticles(),
+        ),
 
         BlocProvider(
           create: (context) => RemoteArticlesCubit(

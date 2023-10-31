@@ -10,7 +10,7 @@ class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
     /// routes go here
     AutoRoute(page: TechCrunchView.page,initial: true),
-    AutoRoute(page: RouteB.page),
-    AutoRoute(page: RouteC.page)
+    AutoRoute(page: ArticleDetailsView.page),
+    AutoRoute(page: SavedArticlesView.page)
   ];
 }

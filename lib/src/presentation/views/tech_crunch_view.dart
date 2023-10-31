@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:tech_crunch/src/configs/router/app_router.gr.dart';
 
 import '../../domain/model/articles.dart';
 import '../../utils/extensions/scroll_controller.dart';
@@ -33,15 +34,17 @@ class TechCrunchView extends HookWidget {
           'TechCrunch News',
           //style: TextStyle(color: Colors.black),
         ),
-        // actions: [
-        //   GestureDetector(
-        //     onTap: () => appRouter.push(const SavedArticlesViewRoute()),
-        //     child: const Padding(
-        //       padding: EdgeInsets.symmetric(horizontal: 14),
-        //       child: Icon(Ionicons.bookmark, color: Colors.black),
-        //     ),
-        //   ),
-        // ],
+        actions: [
+          GestureDetector(
+            //onTap: () => appRouter.push(const SavedArticlesViewRoute()),
+           onTap: () => context.router.push(const SavedArticlesView()),
+
+            child: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 14),
+              child: Icon(Ionicons.bookmark, color: Colors.black),
+            ),
+          ),
+        ],
       ),
       body: BlocBuilder<RemoteArticlesCubit, RemoteArticlesState>(
         builder: (_, state) {
@@ -76,7 +79,8 @@ class TechCrunchView extends HookWidget {
           delegate: SliverChildBuilderDelegate(
                 (context, index) => ArticleWidget(
               article: articles[index],
-              // onArticlePressed: (e) => appRouter.push(
+              onArticlePressed: (e) =>  context.router.push(ArticleDetailsView(article: e)),
+              // onArticlePressed: (e) => AutoRouter.of(context).push(
               //   ArticleDetailsViewRoute(article: e),
               // ),
             ),
