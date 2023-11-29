@@ -49,7 +49,7 @@ class ArticleWidget extends StatelessWidget {
       borderRadius: BorderRadius.circular(20.0),
       child: Container(
         // width: MediaQuery.of(context).size.width / 3,
-       height: 200,
+       height: 180,
         width: 400,
 
         // height: double.maxFinite,
@@ -75,7 +75,9 @@ class ArticleWidget extends StatelessWidget {
   Widget _buildTitleAndDescription() {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        // padding: const EdgeInsetsDirectional.only(
+        //     start: 14, end: 14,  top: 7),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +91,7 @@ class ArticleWidget extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'Butler',
                   fontWeight: FontWeight.w900,
-                  fontSize: 24,
+                  fontSize: 22,
 
                 ),
               ),

@@ -41,7 +41,7 @@ class TechCrunchView extends HookWidget {
 
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 14),
-              child: Icon(Ionicons.bookmark, color: Colors.black),
+              child: Icon(Ionicons.bookmark),
             ),
           ),
         ],
